@@ -10,6 +10,12 @@ import { DatabaseModule } from './database/database.module';
 import { PriceService } from './price/price.service';
 import { MailModule } from './mail/mail.module';
 import { PriceController } from './price/price.controller';
+import { AlertService } from './alert/alert.service';
+import { AlertController } from './alert/alert.controller';
+import { SwapService } from './swap/swap.service';
+import { SwapController } from './swap/swap.controller';
+import { CoinGeckoModule } from './coingecko/coingecko.module';
+import { SwapModule } from './swap/swap.module';
 
 @Module({
   imports: [
@@ -20,14 +26,22 @@ import { PriceController } from './price/price.controller';
     HttpModule,
     DatabaseModule,
     MailModule,
+    CoinGeckoModule,
+    SwapModule,
   ],
-  controllers: [AppController, PriceController],
-  providers: [AppService, MoralisService, PriceTrackerService, PriceService],
+  controllers: [
+    AppController,
+    PriceController,
+    AlertController,
+    SwapController,
+  ],
+  providers: [
+    AppService,
+    MoralisService,
+    PriceTrackerService,
+    PriceService,
+    AlertService,
+    SwapService,
+  ],
 })
 export class AppModule {}
-
-
-
-
-
-

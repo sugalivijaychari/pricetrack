@@ -17,7 +17,7 @@ async function bootstrap() {
 
   try {
     // Send the email manually
-    await mailService.sendPriceAlertEmail('Ethereum', 2500, 2850);
+    await mailService.sendPriceIncreaseAlertEmail('Ethereum', 2500, 2850);
     console.log(`Email successfully sent to ${receiverEmail}`);
   } catch (error) {
     console.error('Failed to send email:', error);

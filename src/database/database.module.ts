@@ -10,7 +10,7 @@ import { DatabaseService } from './database.service';
     {
       provide: 'KnexConnection',
       useFactory: async (configService: ConfigService) => {
-        const knex = Knex(knexConfig);
+        const knex = Knex.default(knexConfig);
         return knex;
       },
       inject: [ConfigService],

@@ -11,7 +11,7 @@ export class MailService {
     private readonly configService: ConfigService,
   ) {}
 
-  async sendPriceAlertEmail(
+  async sendPriceIncreaseAlertEmail(
     chain: string,
     oldPrice: number,
     newPrice: number,
@@ -27,5 +27,29 @@ export class MailService {
     });
 
     this.logger.log(`Alert email sent for ${chain} price increase.`);
+  }
+
+  async sendPriceAlertEmail(
+    chain: string,
+    targetPrice: number,
+    currentPrice: number,
+    email: string,
+  ): Promise<void> {
+    const subject = `Price Alert: ${chain} has reached your target of $${targetPrice}`;
+    const text = `Dear User,\n\nThe price of ${chain} has reached your target price of $${targetPrice}.\n\nCurrent Price: $${currentPrice}\n\nThis is a notification based on your alert settings.\n\nThank you,\nBlockchain Price Tracker`;
+
+    try {
+      await this.mailerService.sendMail({
+        to: email,
+        subject: subject,
+        text: text,
+      });
+      this.logger.log(
+        `Alert email sent to ${email} for ${chain} price target.`,
+      );
+    } catch (error) {
+      this.logger.error('Failed to send price alert email:', error);
+      throw error;
+    }
   }
 }

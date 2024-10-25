@@ -29,18 +29,15 @@ export class PriceService {
         .orderBy('timestamp', 'desc')
         .first();
 
-      if (result) {
-        this.logger.log(
-          `Successfully fetched latest price for chain: ${chain}`,
-        );
-        return result.price;
-      } else {
-        this.logger.warn(`No price found for chain: ${chain}`);
+      if (!result) {
+        this.logger.warn(`No price data found for chain: ${chain}`);
         return null;
       }
+
+      return result.price;
     } catch (error) {
       this.logger.error(
-        `Failed to fetch latest price for chain: ${chain}`,
+        `Database error when fetching price for ${chain}`,
         error,
       );
       throw error;
