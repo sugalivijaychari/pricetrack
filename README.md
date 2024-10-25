@@ -47,3 +47,7 @@ $ docker-compose build --no-cache
 $ docker-compose up
 
 ```
+
+## PostgreSQL
+
+Make sure postgreSQL is running on your machine.
