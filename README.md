@@ -37,3 +37,13 @@ $ npm run test:cov
 ## Environment variables
 
 Make sure to rename .env_example to .env and replace the actual environment variables
+
+## Docker commands
+
+```bash
+
+$ docker-compose build --no-cache
+
+$ docker-compose up
+
+```

@@ -33,7 +33,7 @@ export class PriceTrackerService {
   }
 
   // Schedule task to check price increase every hour
-  @Cron(CronExpression.EVERY_HOUR)
+  @Cron(CronExpression.EVERY_30_SECONDS)
   async checkPriceIncrease() {
     const chains = ['Ethereum', 'Polygon']; // Chains to monitor
 
