@@ -12,11 +12,6 @@ import { MailModule } from './mail/mail.module';
 import { PriceController } from './price/price.controller';
 import { AlertService } from './alert/alert.service';
 import { AlertController } from './alert/alert.controller';
-import { SwapService } from './swap/swap.service';
-import { SwapController } from './swap/swap.controller';
-import { CoinGeckoModule } from './coingecko/coingecko.module';
-import { SwapModule } from './swap/swap.module';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -26,14 +21,11 @@ import { SwapModule } from './swap/swap.module';
     HttpModule,
     DatabaseModule,
     MailModule,
-    CoinGeckoModule,
-    SwapModule,
   ],
   controllers: [
     AppController,
     PriceController,
     AlertController,
-    SwapController,
   ],
   providers: [
     AppService,
@@ -41,7 +33,6 @@ import { SwapModule } from './swap/swap.module';
     PriceTrackerService,
     PriceService,
     AlertService,
-    SwapService,
   ],
 })
 export class AppModule {}
