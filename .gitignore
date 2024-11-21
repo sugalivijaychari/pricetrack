@@ -88,7 +88,6 @@ jspm_packages/
 
 # Docker
 docker-compose.override.yml
-.env
 .dockerignore
 
 # IDE files
